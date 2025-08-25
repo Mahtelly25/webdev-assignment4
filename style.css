@@ -1,0 +1,160 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --primary-color: #4a90e2;
+    --secondary-color: #2c2c2c;
+    --border-color: #444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header & Footer */
+header, footer {
+    background-color: var(--secondary-color);
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Navigation Bar (Flexbox) */
+nav {
+    background-color: var(--bg-color);
+    padding: 1rem 0;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a:focus {
+    color: var(--text-color);
+}
+
+/* Main Content Area (CSS Grid) */
+main {
+    padding: 2rem 1.5rem;
+    width: 100%;
+    display: grid;
+    grid-template-areas: "content sidebar";
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    min-height: calc(100vh - 120px);
+}
+
+#content {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+#content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#content h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+#content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+#sidebar {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+#sidebar h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+#sidebar ul {
+    list-style: none;
+}
+
+#sidebar li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+#sidebar li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Media Queries */
+@media screen and (max-width: 768px) {
+    body {
+        display: block;
+    }
+    
+    main {
+        grid-template-areas: 
+            "content"
+            "sidebar";
+        grid-template-columns: 1fr;
+    }
+
+    header, footer, nav, main {
+        padding: 1rem;
+    }
+
+    #content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    nav a {
+        display: block;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+}
